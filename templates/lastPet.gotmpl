@@ -1,0 +1,10 @@
+{{- range (len . | dec | dec | slice . ) }}
+---
+Name:  {{ .Name }}
+
+Sex:   {{ .Sex }} ({{ if .Intact }}intact{{ else }}{{ if ("Female" | eq .Sex) }}spayed{{ else }}neutered{{ end }}{{ end }})
+
+Age:   {{ .Age }}
+
+Breed: {{ replace .Breed "/" " & " }}
+{{ end -}}
